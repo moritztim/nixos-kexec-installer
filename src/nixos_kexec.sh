@@ -4,8 +4,6 @@ set -o pipefail -o errexit
 
 cd "$(dirname "$0")"
 
-DEFAULT_CONFIGURATION_FILE="./default.env"
-
 show_help() {
 	cat << EOF
 Usage: $(basename "$0") [OPTIONS]
@@ -37,12 +35,6 @@ get_current_arch() {
 		x86_64|aarch64) echo "$arch-linux" ;;
 		*) echo "Unsupported architecture: $arch" >&2; exit 1 ;;
 	esac
-}
-
-# Function to read config file
-# Adapted from: https://stackoverflow.com/a/30969768/179329
-read_config() {
-	set -o allexport && source "$1" && set +o allexport
 }
 
 # Function to prompt for missing values
@@ -88,7 +80,10 @@ parse_args() {
 }
 
 # Load default configuration
-read_config "$DEFAULT_CONFIGURATION_FILE"
+if [[ -f "$DEFAULT_CONFIGURATION_FILE" ]]; then
+	read_config "$DEFAULT_CONFIGURATION_FILE"
+fi
+
 
 # Load custom configuration, overriding defaults where applicable
 if [[ -f "$CONFIGURATION_FILE" ]]; then
