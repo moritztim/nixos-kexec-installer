@@ -1,0 +1,25 @@
+name: Build script and attach to release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-and-attach:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+            
+      - name: Build script
+        run: ./build.sh > /tmp/nixos-kexec.sh
+
+      - name: Checksum
+        run: sha1sum /tmp/nixos-kexec.sh > /tmp/nixos-kexec.sh.sha1
+        
+      - name: Attach to release
+        uses: csexton/release-asset-action@v3
+        with:
+          pattern: /tmp/nixos-kexec.sh*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
