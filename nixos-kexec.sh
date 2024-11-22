@@ -6,6 +6,30 @@ cd "$(dirname "$0")"
 
 DEFAULT_CONFIGURATION_FILE="./default.env"
 
+show_help() {
+	cat << EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Options:
+	--help		Show this help message and exit
+	--install	Download and execute the kexec installer
+
+This script constructs and validates URLs for the NixOS kexec installer.
+Without --install, it only validates and outputs the URL.
+With --install, it downloads and executes the installer (requires root).
+
+Environment variables can be set in custom.env. The following variables are supported:
+	SOURCE
+	TAG
+	ARCH
+	INTERACTIVE
+For a description of these, see default.env.
+
+For more information, see the README.
+EOF
+	exit 0
+}
+
 # Function to get system architecture
 get_current_arch() {
 	local arch=$(uname -m)
@@ -45,18 +69,22 @@ prompt_missing_values() {
 
 # Function to parse script arguments
 parse_args() {
-	while [[ $# -gt 0 ]]; do
-		case "$1" in
-			--install)
-				INSTALL=true
-				shift
-				;;
-			*)
-				echo "Unknown option: $1" >&2
-				exit 1
-				;;
-		esac
-	done
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --help)
+                show_help
+                ;;
+            --install)
+                INSTALL=true
+                shift
+                ;;
+            *)
+                echo "Unknown option: $1" >&2
+				show_help
+                exit 1
+                ;;
+        esac
+    done
 }
 
 # Load default configuration
