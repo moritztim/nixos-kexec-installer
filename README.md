@@ -10,7 +10,7 @@ Bash script to download and install NixOS using [`kexec`](https://man7.org/linux
 - Generating a download URL
 - Booting with kexec
 
-## Usage
+## Run
 
 1. Generate an installer URL
 ```bash
@@ -20,6 +20,13 @@ Bash script to download and install NixOS using [`kexec`](https://man7.org/linux
 2. Install NixOS (requires root):
 ```bash
 sudo ./run.sh --install
+```
+
+## Build
+
+To build a standalone script, run:
+```bash
+./build.sh
 ```
 
 ## Configuration
