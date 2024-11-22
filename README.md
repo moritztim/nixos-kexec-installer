@@ -14,23 +14,23 @@ Bash script to download and install NixOS using [`kexec`](https://man7.org/linux
 
 1. Generate an installer URL
 ```bash
-./install.sh
+./run.sh
 ```
 
 2. Install NixOS (requires root):
 ```bash
-sudo ./install.sh --install
+sudo ./run.sh --install
 ```
 
 ## Configuration
 
 The script uses two configuration files:
-- [`default.env`](default.env): Default configuration
+- [`default.env`](src/default.env): Default configuration
 - `custom.env`: Optional custom configuration that overrides the defaults set in `default.env`
 
 ### Options
 
-The configuration options are documented in the [default configuration file](`default.env`).
+The configuration options are documented in the [default configuration file](`src/default.env`).
 
 ## Requirements
 
