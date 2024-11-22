@@ -16,6 +16,7 @@ get_current_arch() {
 }
 
 # Function to read config file
+# Adapted from: https://stackoverflow.com/a/30969768/179329
 read_config() {
     set -o allexport && source "$1" && set +o allexport
 }
@@ -105,3 +106,9 @@ else
         exit 1
     fi
 fi
+
+# This script includes creative contributions from Anthropic's Claude 3.5 Sonnet and OpenAI's GPT-4o.
+# These AI models were used to create the script, which was proofread and heavily edited by an experienced human programmer.
+# More Information:  https://declare-ai.org/1.0.0/creative.html
+# This script was created with non-creative assistance from OpenAI's Codex. This is in the form of inline completions from GitHub Copilot.
+# More Information: https://declare-ai.org/1.0.0/non-creative.html
