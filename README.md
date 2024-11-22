@@ -13,6 +13,8 @@ Bash script to download and install NixOS using [`kexec`](https://man7.org/linux
 ## Usage
 
 ### Run pre-built script
+
+Run the following snippet with root priviliges on the machine you wish to install nixos to.
 ```bash
 bash <(curl -sSLf https://github.com/moritztim/nixos-kexec-installer/releases/latest/download/nixos-kexec.sh) --install
 ```
