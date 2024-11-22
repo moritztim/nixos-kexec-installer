@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e -o pipefail
+set -o pipefail -o errexit
 
 cd "$(dirname "$0")"
 
@@ -17,7 +17,7 @@ get_current_arch() {
 
 # Function to read config file
 read_config() {
-    set -a && source "$1" && set +a
+    set -o allexport && source "$1" && set +o allexport
 }
 
 # Function to prompt for missing values
