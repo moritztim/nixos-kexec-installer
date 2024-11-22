@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Outputs a fully built script to be piped to bash
+# Outputs a fully built script to be piped to bash, saved to a file, etc.
 
 SOURCE="./src"
 DEFAULT_CONFIGURATION_FILE="$SOURCE/default.env"
