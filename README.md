@@ -14,7 +14,7 @@ Bash script to download and install NixOS using [`kexec`](https://man7.org/linux
 
 ### Run pre-built script
 ```bash
-curl -sSLf https://github.com/moritztim/nixos-kexec-installer/releases/latest/download/nixos-kexec.sh | bash
+bash <(curl -sSLf https://github.com/moritztim/nixos-kexec-installer/releases/latest/download/nixos-kexec.sh) --install
 ```
 
 ### Run
