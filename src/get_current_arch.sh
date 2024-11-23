@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Function to get system architecture
 get_current_arch() {
 	local arch=$(uname -m)
