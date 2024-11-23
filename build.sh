@@ -13,4 +13,5 @@ echo "# This script is GENERATED. Do not edit directly."
 echo
 cat "$DEFAULT_CONFIGURATION_FILE"
 cat "$SOURCE/read_config.sh"
+cat "$SOURCE/get_current_arch.sh"
 cat "$SOURCE/nixos_kexec.sh"

@@ -7,4 +7,5 @@ set -o pipefail -o errexit
 cd "$(dirname "$0")"
 
 source "$SOURCE/read_config.sh"
+source "$SOURCE/get_current_arch.sh"
 source "$SOURCE/nixos_kexec.sh" "$@"
